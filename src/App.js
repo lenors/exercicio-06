@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class Contador extends Component {
+  state = {
+    numero: 1,
+  };
+
+  Add = () => {
+    if (this.state.numero < 10) {
+      this.setState({
+        numero: this.state.numero + 1,
+      });
+    }
+  };
+
+  remove = () => {
+    this.setState({
+      numero: this.state.numero - 1,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Contador</h1>
+        <p>{this.state.numero}</p>
+        <button onClick={this.Add}>+1</button>
+        <button onClick={this.remove}>remove 1</button>
+      </div>
+    );
+  }
 }
-
-export default App;
