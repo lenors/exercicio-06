@@ -14,6 +14,7 @@ export default class Contador extends Component {
   };
 
   remove = () => {
+    if (this.state.numero > 0)
     this.setState({
       numero: this.state.numero - 1,
     });
